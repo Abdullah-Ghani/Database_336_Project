@@ -19,21 +19,25 @@
                     String email = request.getParameter("email");
                     String password = request.getParameter("password");
                     if (email != null && password != null) {
-                        Class.forName("com.mysql.jdbc.Driver").newInstance();
-                        Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.cunxqv1yfwcg.us-east-2.rds.amazonaws.com:3306/cs336","admin", "password123");
-                        Statement st = con.createStatement();
-                        ResultSet rs;
-                        String query = String.format("SELECT * FROM account WHERE email = \"%s\"", email);
-                        rs = st.executeQuery(query);
-                        if (rs.next()) {
-                            out.println("There is already an account registered with that email, please try logging in");
+                        if (fname.length() == 0 || lname.length() == 0 || address.length() == 0 || email.length() == 0 || password.length() == 0) {
+                            out.println("Error, missing information below");
                         } else {
-                            query = String.format("INSERT INTO account (fname, lname, address, email, password) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")", fname, lname, address, email, password);
-                            st.executeUpdate(query);
-                            session.setAttribute("email", email); // the username will be stored in the session
-                            session.setAttribute("fname", fname); // the username will be stored in the session
-                            session.setAttribute("lname", lname); // the username will be stored in the session
-                            response.sendRedirect("success.jsp");
+                            Class.forName("com.mysql.jdbc.Driver").newInstance();
+                            Connection con = DriverManager.getConnection("jdbc:mysql://cs336db.cunxqv1yfwcg.us-east-2.rds.amazonaws.com:3306/cs336","admin", "password123");
+                            Statement st = con.createStatement();
+                            ResultSet rs;
+                            String query = String.format("SELECT * FROM account WHERE email = \"%s\"", email);
+                            rs = st.executeQuery(query);
+                            if (rs.next()) {
+                                out.println("There is already an account registered with that email, please try logging in");
+                            } else {
+                                query = String.format("INSERT INTO account (fname, lname, address, email, password) VALUES (\"%s\", \"%s\", \"%s\", \"%s\", \"%s\")", fname, lname, address, email, password);
+                                st.executeUpdate(query);
+                                session.setAttribute("email", email); // the username will be stored in the session
+                                session.setAttribute("fname", fname); // the username will be stored in the session
+                                session.setAttribute("lname", lname); // the username will be stored in the session
+                                response.sendRedirect("success.jsp");
+                            }
                         }
                     }
                 %>
