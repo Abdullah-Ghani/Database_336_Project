@@ -38,8 +38,8 @@
                     }
                 %>
                 <form method="POST">
-                    <input name="fname" type="text" placeholder="fname" />
-                    <input name="lname" type="text" placeholder="lname" />
+                    <input name="fname" type="text" placeholder="first name" />
+                    <input name="lname" type="text" placeholder="last name" />
                     <input name="address" type="text" placeholder="address" />
                     <input name="email" type="text" placeholder="email" />
                     <input name="password" type="password" placeholder="password" />

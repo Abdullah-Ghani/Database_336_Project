@@ -36,7 +36,7 @@
                 <input name="email" type="text" placeholder="email" />
                 <input name="password" type="password" placeholder="password" />
                 <button>Register</button>
-                <p class="message">Not registered?<a href="register.jsp">Register</a></p>
+                <p class="message">Not registered?<a href="register.jsp">Login</a></p>
             </form>
         </div>
     </div>
