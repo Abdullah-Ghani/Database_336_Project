@@ -44,7 +44,7 @@
                     <input name="email" type="text" placeholder="email" />
                     <input name="password" type="password" placeholder="password" />
                     <button>Register</button>
-                    <p class="message">Already have an account? <a href="login.jsp">Login</a></p>
+                    <p class="message">Already have an account? <a href="index.jsp">Login</a></p>
                 </form>
             </div>
         </div>

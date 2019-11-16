@@ -35,8 +35,8 @@
             <form method="POST">
                 <input name="email" type="text" placeholder="email" />
                 <input name="password" type="password" placeholder="password" />
-                <button>Register</button>
-                <p class="message">Not registered?<a href="register.jsp">Login</a></p>
+                <button>Login</button>
+                <p class="message">Not registered?<a href="register.jsp">Register</a></p>
             </form>
         </div>
     </div>
